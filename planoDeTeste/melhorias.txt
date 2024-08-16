@@ -1,0 +1,9 @@
+MELHORIAS
+
+1 - Incluir botão de realizar uma nova venda após realizar a transacao, pois preciso clicar no menu novamente para incluir outra transacao. Usabilidade ruim, experiência do usuário impactada;
+2 - Colocar opção para incluir varios clientes:
+    - Dados do cliente inserido em uma tabela abaixo;
+    - Botões com: alterar, incluir novo cliente e colocar mais saldo para o cliente inserido;
+3 - Opção de inserir mais saldo, sem precisar alterar os dados do cliente.
+    - Seleciona cliente e insere mais saldo;
+4 - Verificar tempo de disponibilidade da aplicação, pois quando ela fica muito tempo logada, a aplicação cai.

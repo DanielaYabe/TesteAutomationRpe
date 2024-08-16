@@ -1,0 +1,130 @@
+CENÁRIOS DE TESTE FUNCIONAIS
+
+- LOGIN:
+FLUXO DE SUCESSO
+1 - Realizar login com sucesso
+    Usuário insere as credenciais validas (admin, admin) e consegue acessar a aplicação com sucesso, sendo direcionado para a tela home.
+    Passos para execução do teste:
+    1 - Clicar no link: http://provaqa.prc.rpe.tech:9080/desafioqa/
+    2 - Informar login: admin
+    3 - Informar password: admin
+    4 - Clicar em sign in;
+    5 - Usuario direcionado para a tela home com o texto "Bem vindo ao desafio"
+    Resultado esperado:
+    Após informar o usuário e senha com sucesso, o usuário é direcionado para a tela home que contem o menu para inclusao de clientes e realização de venda;
+
+FLUXOS ALTERNATIVOS
+2 - Realizar login com senha incorreta
+    Usuário insere credenciais invalidas e recebe uma mensagem de erro indicando que o usuário e senha estão inválidos
+3 - Realizar login sem informar um dos campos obrigatórios
+    Usuário insere usuário, porém não informa a senha
+    Usuário insere a senha, porém não informa o usuário
+    Em ambas situações ele recebe informação de campo obrigatório
+4 - Redefinir a senha com dados validos
+    Usuário clica em "esqueci a senha", informa os dados solicitados e segue o passo para redefinição de senha
+5 - Redefinir a senha com dados invalidos
+    Usuário clica em "esqueci a senha", informa os dados solicitados invalido e recebe email informando que usuário nao foi encontrado
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- CRIAÇÃO DE CLIENTE:
+FLUXO DE SUCESSO
+1 - Realizar inclusão de um novo cliente com sucesso
+    Usuário clica para incluir um novo cliente, informa todos os dados corretamente e recebe uma mensagem que o usuário foi salvo com sucesso.
+    Passos para execução do teste:
+        1 - Clicar no link: http://provaqa.prc.rpe.tech:9080/desafioqa/
+        2 - Realizar o login com sucesso
+        3 - Clicar em QA > Clientes > Inclir
+        4 - Usuario direcionado para tela incluir cliente;
+        5 - Usuario informa dados validos para: nome, cpf, ativo e saldo disponível;
+        6 - Usuario clica em salvar;
+        7 - Aparece na tela um alerta informando que o cliente foi salvo com sucesso;
+        8 - Os campos ficam com os dados que foram preenchidos e um campo com validade do cartão aparece na tela;
+        9 - Fica disponível o campo alterar a cancelar;
+        Resultado esperado:
+        Após informar todos os dados validos o usuário cria o cliente com sucesso.
+
+FLUXO ALTERNATIVO
+2 - Realizar inclusão de um novo cliente com dados inválidos
+    Usuário clica para incluir um novo cliente, informa dados invalidos e os campos ficam com um x informando que o dado esta invalido
+3 - Realizar inclusão de um novo cliente sem informar dados obrigatórios
+    Usuário clica para incluir um novo cliente, informa dados invalidos e os campos ficam com um x informando que o campo é obrigatorio e o botao salvar nao fica apto
+4 - Realizar inclusão de um novo cliente com saldo negativo
+    Usuario clica para incluir um novo cliente, informa saldo nevativo e o campo nao permite essa inserção
+5 - Alterar cliente
+    Usuario inclui um novo cliente, clica para alterar e os campos ficam disponíveis para realização da alteração. O usuario altera os dados com sucesso.
+6 - Listar cliente criado
+    Usuario cria um novo cliente, vai até a tela de listar novos clientes e busca pelo cliente criado
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- REALIZAÇÃO DE VENDA:
+FLUXO DE SUCESSO
+1 - Realizar uma nova venda com sucesso
+    Usuario seleciona o cliente que deseja realizar nova venda, informa o valor correto dentro do saldo disponivel e a venda e realizada com sucesso
+    Passos para execução do teste:
+            1 - Clicar no link: http://provaqa.prc.rpe.tech:9080/desafioqa/
+            2 - Realizar o login com sucesso
+            3 - Clicar em QA > Transações > Inclir
+            4 - Usuario direcionado para tela incluir transacao;
+            5 - Usuario seleciona o cliente e informa o valor da transacao
+            6 - Usuario clica em salvar;
+            7 - Aparece na tela um alerta informando que a transacao foi salva com sucesso
+            8 - Os campos ficam com os dados que foram preenchidos;
+            9 - Fica disponível o campo cancelar;
+            Resultado esperado:
+            Após informar todos os dados validos o usuário cria a venda com sucesso.
+
+FLUXO ALTERNATIVO
+2 - Realizar uma venda com saldo menor que o saldo disponivel
+    Usuario seleciona o cliente, inclui um valor maior que o saldo disponivel e recebe mensagem informando que cliente nao tem saldo suficiente
+3 - Realizar uma venda sem preencher campos obrigatorios
+    Usuario seleciona o cliente, porem nao informa o valor da transação e tenta realizar a venda. O campo salvar nao fica disponivel
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- LISTAR VENDA E CLIENTE:
+FLUXOS EXTRAS
+1 - Listar todos clientes disponiveis
+    Usuario navega pela tela de listar clientes e lista todos clientes cadastrados com sucesso;
+2 - Listar todos clientes ativos
+    Usuario navega pela tela de listar clientes e lista todos clientes ativos, ao clicar em clientes ativos
+3 - Listar as vendas de um cliente
+    Usuario navega pela tela de transações, seleciona o cliente e clica em pesquisar. As vendas desse cliente são listadas nas telas
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CENARIOS DE TESTES NAO FUNCIONAIS
+TESTE DE USABILIDADE:
+- Avaliar a facilidade de uso da interface de usuário.
+-  Verificar se os elementos na página de login são intuitivos.
+-  Testar a navegação do usuário ao realizar a criação de clientes e vendas.
+
+TESTE DE PERFORMANCE
+- Avaliar o tempo de resposta do sistema ao processar o login, criação de clientes e realização de vendas.
+- Testar como o sistema se comporta sob carga elevada, como vários usuários tentando logar ao mesmo tempo.
+
+TESTE DE INTEGRAÇÃO
+- Garantir que o frontend se comunique corretamente com o backend.
+- Testar a integração com sistemas externos, como gateways de pagamento, se aplicável.
+
+TESTE DE ACESSIBILIDADE
+- Verificar se a aplicação é acessível para usuários com deficiências, como suporte para leitores de tela e navegação por teclado.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TESTES PARA BACKEND (GET, POST, PUT, PATCH, DELETE)
+GET:
+- Verificar se o retorno de dados está correto e conforme esperado.
+- Testar as respostas para requisições de dados inexistentes.
+
+POST:
+- Testar a criação de novos registros com dados válidos e inválidos.
+- Verificar a validação de campos obrigatórios e formatos de dados.
+
+PUT:
+- Testar a atualização completa de registros com dados válidos e inválidos.
+- Verificar se o sistema rejeita atualizações em registros inexistentes.
+
+PATCH:
+- Testar a atualização parcial de registros.
+- Verificar se apenas os campos especificados são atualizados.
+
+DELETE:
+- Verificar se a exclusão de registros funciona corretamente.
+- Testar a tentativa de exclusão de registros inexistentes e se o sistema responde adequadamente.

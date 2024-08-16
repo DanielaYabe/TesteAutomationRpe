@@ -1,0 +1,62 @@
+1 - Listar transações
+    Ao clicar em listar transação e selecionar um cliente, ao clicar em pesquisar os dados não estão sendo retornados
+    Passo a passo para reproduzir o bug:
+    1 - Realizar login na aplicação;
+        login: admin, password: admin
+    2 - Na tela home seguir o passo:
+        QA > Transações > Listar
+    3 - Selecionar um cliente: 'Daniela Yabe'
+    4 - Clicar em pesquisar
+    - Resultado esperado: informações de Daniela Yabe aparecer na tela
+    - O que está acontecendo: ao clicar em pesquisar nenhuma informação é retornada na tela;
+
+2 - Realizar venda com saldo maior que o saldo disponível
+    Inclui uma cliente com saldo 39.99 e tentei realizar uma venda no valor de 40.00, recebi um alerta com venda realizada com sucesso
+    Passo a passo para reproduzir o bug:
+    1 - Realizar login na aplicação;
+        login: admin, password: admin
+    2 - Na tela home seguir o passo:
+        QA > Cliente > Incluir
+    3 - Incluir um novo cliente com valor 39.99 ou algum valor quebrado
+    4 - Realizar transação seguindo o passo:
+        QA > Transações > Incluir
+    5 - Incluir uma nova transação para o cliente que acabou de incluir com o valor 40 ou um centavo acima do valor que você incluiu
+    6 - Clicar em salvar
+    - Resultado esperado: receber um alerta informando que saldo não é suficiente
+    - O que está acontecendo: ao clicar em salvar aparece um alerta informando que a venda foi realizada com sucesso
+
+3 - Saldo do cliente não esta diminuindo apos realizar uma venda
+    Ao realizar uma venda, o saldo não diminuiu.
+     1 - Realizar login na aplicação;
+            login: admin, password: admin
+        2 - Na tela home seguir o passo:
+            QA > Cliente > Incluir
+        3 - Incluir um novo cliente com valor 39.99 ou algum valor quebrado
+        4 - Realizar transação seguindo o passo:
+            QA > Transações > Incluir
+        5 - Incluir uma nova transação para o cliente que acabou de incluir com o valor 40 ou um centavo acima do valor que você incluiu
+        6 - Clicar em salvar
+        7 - Ir até a tela de listar cliente
+            QA > Cliente > Listar
+        8 - Pesquisar pelo cliente que acabou de realizar uma venda
+        9 - Clicar em pesquisar
+        - Resultado esperado: no minimo o saldo deveria estar zerado nesse caso;
+        - O que esta acontecendo: o saldo continua o mesmo e consigo fazer uma nova venda com esse usuario. Quando realiza uma nova venda o saldo até aumenta;
+
+4 - É permitido salvar o mesmo cliente varias vezes, com mesmo saldo e CPF
+    Ao criar o mesmo cliente várias e varias vezes está sendo permito
+        1 - Realizar login na aplicação;
+            login: admin, password: admin
+        2 - Na tela home seguir o passo:
+            QA > Cliente > Incluir
+        3 - Incluir um cliente;
+        4 - Seguir o mesmo passo novamente e incluir o mesmo cliente
+        - Resultado esperado: informar que o cliente já esta na base de dados
+        - O que esta acontecendo: está sendo permitido salvar o mesmo cliente varias e varias vezes;
+
+5 - A opção de "forget password" esta quebrada
+    Ao clicar nessa opção estou sendo direcionada para uma tela informando que o link esta quebrado
+    1 - Clicar na opção 'forget password' na tela de login
+    Resultado esperado: ser direcionado para a tela de redefinição de senha
+    O que esta acontecendo: link esta quebrado ou sou direcionado para a tela de login novamente
+                            (This application has no explicit mapping for /error, so you are seeing this as a fallback.)
